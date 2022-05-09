@@ -1,8 +1,11 @@
 import { Card, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 
 const SingleDisplay = ({ data }) => {
+  const navigate = useNavigate();
+  let idRoute = "/" + data.company_name;
   return (
-    <Card>
+    <Card onClick={() => navigate(idRoute)}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
         <Card.Title>
