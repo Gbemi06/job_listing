@@ -1,10 +1,4 @@
-import {
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  InputGroup,
-  Form,
-} from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import { useState, useEffect } from "react";
 import Display from "./Display";
@@ -23,7 +17,6 @@ const Homepage = () => {
         `https://strive-jobs-api.herokuapp.com/jobs?search=${search}&limit=10`
       );
       const data = await response.json();
-      console.log(data);
       setResult(data.data);
     } catch (error) {
       console.log(error);
@@ -41,10 +34,10 @@ const Homepage = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </Form.Group>
-      <Button variant="primary" onClick={() => fetchData()}>
+      <Button className="py-3" variant="primary" onClick={() => fetchData()}>
         Search Button
       </Button>
-      <Display data={result} />
+      {<Display data={result} />}
     </>
   );
 };

@@ -5,9 +5,11 @@ const Display = ({ data }) => {
   console.log(data);
   return (
     <Row>
-      <Col md={3}>
-        {data.map((info) => (
-          <SingleDisplay data={info} />
+      <Col>
+        {data.map((info, i) => (
+          <div key={i}>
+            <SingleDisplay data={info} />
+          </div>
         ))}
       </Col>
     </Row>
